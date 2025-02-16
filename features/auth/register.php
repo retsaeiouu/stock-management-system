@@ -1,7 +1,8 @@
 <?php
+include '../../config.php';
 session_start();
 if (isset($_SESSION['username'])) {
-    header('Location: http://localhost/stock-management-system/features/home/home.php');
+    header('Location: ' . BASEPATH . '/features/home/home.php');
     exit();
 }
 ?>
@@ -38,7 +39,7 @@ if (isset($_POST['username'])) {
     $stmt->bind_param('ss', $_POST['username'], $_POST['password']);
     $stmt->execute();
     $_SESSION['username'] = $_POST['username'];
-    header('Location: http://localhost/stock-management-system/features/home/home.php');
+    header('Location: ' . BASEPATH . '/features/home/home.php');
     exit();
 }
 ?>

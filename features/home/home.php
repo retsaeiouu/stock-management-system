@@ -1,7 +1,8 @@
 <?php
+include '../../config.php';
 session_start();
 if (!isset($_SESSION['username'])) {
-    header('Location: http://localhost/stock-management-system/features/auth/login.php');
+    header('Location: ' . BASEPATH . '/features/auth/login.php');
     exit();
 }
 ?>
@@ -20,7 +21,7 @@ if (!isset($_SESSION['username'])) {
 <?php
 if ($_POST['logout'] === 'logout') {
     session_destroy();
-    header('Location: http://localhost/stock-management-system/features/auth/login.php');
+    header('Location: ' . BASEPATH . '/features/auth/login.php');
     exit();
 }
 ?>
