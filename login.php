@@ -1,13 +1,11 @@
 <?php
-include 'index.php';
+include 'db.php';
 session_start();
-// FIX:
-// if logged in, mapupunta sa home, if hindi, sa login page naman
-/* if (isset($_SESSION['username'])) { */
-/* header('Location: http://localhost/stock-management-system/home.php'); */
-/* } else { */
-/* header('Location: http://localhost/stock-management-system/login.php'); */
-/* } */
+// if logged in mapupunta sa home page
+if (isset($_SESSION['username'])) {
+    header('Location: http://localhost/stock-management-system/home.php');
+    exit();
+}
 ?>
 <!doctype html>
 <html lang="en">
