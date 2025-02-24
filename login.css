@@ -1,0 +1,25 @@
+.form-body {
+  border: 2px solid #ccc;
+  padding: 2rem;
+  width: fit-content;
+  height: 50vh;
+  border-radius: 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-input-field {
+  border-radius: 999px;
+  padding: 0.3rem;
+  border: 2px solid #ccc;
+}
+
+.form-input-field:focus {
+  outline: 2px solid rgb(62, 202, 249);
+}
+
+.form-input-label {
+  text-align: center;
+}
