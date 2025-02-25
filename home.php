@@ -15,13 +15,20 @@ if (!isset($_SESSION['username'])) {
     <title>Home</title>
   </head>
   <body>
-<?php echo 'hello, ' . $_SESSION['username'] . '<br>'; ?>
+    <!-- GREET -->
+  <?php echo "<p>Hello, {$_SESSION['username']}</p>"; ?>
+    <!-- GREET END -->
     <!-- UNIFORM -->
     <?php
     $db = dbinit();
+    $query = '
+      SELECT *
+      FROM stocks INNER JOIN uniforms
+      ON stocks.id = uniforms.stock_id
+    ';
     $result = $db->query('SELECT * FROM stocks INNER JOIN uniforms ON stocks.id = uniforms.stock_id');
     while ($row = $result->fetch_assoc()) {
-        echo '<div>' . $row['uniform_type'] . ' ' . $row['course_name'] . '</div>';
+        echo "<div>{$row['stock_quantity']} {$row['uniform_type']} {$row['stock_type']} {$row['uniform_size']} {$row['uniform_sex']}</div>";
     }
     ?>
     <!-- UNIFORM END -->
@@ -29,13 +36,13 @@ if (!isset($_SESSION['username'])) {
     <form action="home.php" method="POST">
       <input type="submit" name="logout" value="logout">
     </form>
+    <?php
+    if (isset($_POST['logout']) && $_POST['logout'] === 'logout') {
+        session_destroy();
+        header('Location: http://localhost/stock-management-system/login.php');
+        exit();
+    }
+    ?>
     <!-- LOGOUT END -->
-<?php
-if ($_POST['logout'] === 'logout') {
-    session_destroy();
-    header('Location: http://localhost/stock-management-system/login.php');
-    exit();
-}
-?>
   </body>
 </html>

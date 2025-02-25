@@ -22,7 +22,6 @@ if (isset($_SESSION['username'])) {
       <input name="password" class="form-input-field"/>
       <label class="form-input-label">password</label>
       <button type="submit">login</button>
-    </form>
 <?php
 if (isset($_POST['username'])) {
     $db = dbinit();
@@ -44,5 +43,6 @@ if (isset($_POST['username'])) {
     exit();
 }
 ?>
+    </form>
   </body>
 </html>
