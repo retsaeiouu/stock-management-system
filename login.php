@@ -17,12 +17,13 @@ if (isset($_SESSION['username'])) {
   </head>
   <body>
     <form action="login.php" method="POST" class="form-body">
+      <div class="logo"></div>
       <input name="username" class="form-input-field" />
       <label class="form-input-label">username</label>
       <input name="password" class="form-input-field"/>
       <label class="form-input-label">password</label>
       <button type="submit">login</button>
-    </form>
+
 <?php
 if (isset($_POST['username'])) {
     $db = dbinit();
@@ -32,11 +33,11 @@ if (isset($_POST['username'])) {
     $result = $stmt->get_result();
     $rows = $result->fetch_assoc();
     if (!isset($rows['username'])) {
-        echo 'Account with username ' . $_POST['username'] . ' does not exist.';
+        echo '<div class="error">Account with username ' . $_POST['username'] . ' does not exist.</div>';
         exit();
     }
     if ($_POST['password'] != $rows['password']) {
-        echo 'password is incorrect';
+        echo '<div class="error">password is incorrect</div>';
         exit();
     }
     $_SESSION['username'] = $rows['username'];
@@ -44,5 +45,6 @@ if (isset($_POST['username'])) {
     exit();
 }
 ?>
+    </form>
   </body>
 </html>
