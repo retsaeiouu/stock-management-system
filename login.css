@@ -1,13 +1,24 @@
 .form-body {
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   padding: 2rem;
-  width: fit-content;
+  width: 14rem;
   height: 50vh;
-  border-radius: 2rem;
+  border-radius: 1rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 5rem;
+}
+
+.logo {
+  background-image: url('public/logo.png');
+  width: 120px;
+  height: 180px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  
 }
 
 .form-input-field {
@@ -21,5 +32,11 @@
 }
 
 .form-input-label {
+  text-align: center;
+}
+
+.error {
+  color: red;
+  margin-top: 1rem;
   text-align: center;
 }

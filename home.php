@@ -12,6 +12,7 @@ if (!isset($_SESSION['username'])) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="dashboard.css">
     <title>Home</title>
   </head>
   <body>
@@ -33,8 +34,9 @@ if (!isset($_SESSION['username'])) {
     ?>
     <!-- UNIFORM END -->
     <!-- LOGOUT -->
-    <form action="home.php" method="POST">
-      <input type="submit" name="logout" value="logout">
+    <input type="submit" name="logout" value="logout">
+    <form action="home.php" method="POST" class="form-body">
+      <h1 class="form-title">Stocks Dashboard</h1>
     </form>
     <?php
     if (isset($_POST['logout']) && $_POST['logout'] === 'logout') {
